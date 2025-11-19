@@ -1,0 +1,1544 @@
+    :root {
+      --primary-color: #0078d7;
+      --secondary-color: #00eaff;
+      --success-color: #28a745;
+      --danger-color: #ff5252;
+      --light-color: #f8f9fa;
+      --dark-color: #343a40;
+      --glass-bg: rgba(255, 255, 255, 0.15);
+      --glass-border: rgba(255, 255, 255, 0.3);
+      --blur: blur(15px);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      min-height: 100vh;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+      transition: background 0.5s ease;
+    }
+
+    body.light-theme {
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1400&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+
+    body.light-theme::before {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Glass effect */
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+      border: 1px solid var(--glass-border);
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Header Styles */
+    header {
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .light-theme .logo {
+      color: #333;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+    .light-theme nav a {
+      color: #333;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--secondary-color);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: #005fa3;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: white;
+      border: 1px solid white;
+    }
+
+    .light-theme .btn-outline {
+      color: #333;
+      border: 1px solid #333;
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Main Content Styles */
+    main {
+      padding: 40px 0;
+      min-height: calc(100vh - 160px);
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+/* ...existing code... */
+
+/* Register Form Specific Styles */
+#registerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#registerForm input,
+#registerForm select {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+#registerForm input:focus,
+#registerForm select:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 8px rgba(0, 120, 215, 0.4);
+}
+
+#registerForm label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.5px;
+}
+
+.light-theme #registerForm label {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+#registerForm button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background-color: var(--success-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+#registerForm button[type="submit"]:hover {
+  background-color: #218838;
+  box-shadow: 0 6px 16px rgba(40, 167, 69, 0.5);
+  transform: translateY(-2px);
+}
+
+#registerForm button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Light theme adjustments */
+.light-theme #registerForm input,
+.light-theme #registerForm select {
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+}
+
+.light-theme #registerForm input:focus,
+.light-theme #registerForm select:focus {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 8px rgba(0, 120, 215, 0.5);
+}
+
+/* Responsive Register Form */
+@media (max-width: 600px) {
+  #registerForm {
+    gap: 10px;
+  }
+
+  #registerForm input,
+  #registerForm select {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  #registerForm label {
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+  }
+
+  #registerForm button[type="submit"] {
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 12px;
+  }
+}
+
+/* ...existing code... */
+    
+/* Label styles (consistent, accessible) */
+label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.2px;
+  transition: color 0.15s ease, transform 0.12s ease;
+}
+
+/* Specific form areas (slightly bolder) */
+.auth-form label,
+.contact-form label,
+.profile-container label,
+.settings-container label,
+#bookingForm label,
+.reminder-box label {
+  font-weight: 700;
+}
+
+/* Required indicator — add class="required" to labels you want to mark */
+label.required::after {
+  content: " *";
+  color: #ff5252; /* danger color */
+  margin-left: 0.15rem;
+  font-weight: 700;
+}
+
+/* Theme-aware colors */
+.light-theme label {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* Compact spacing for small screens */
+@media (max-width: 600px) {
+  label {
+    font-size: 0.92rem;
+    margin-bottom: 0.3rem;
+  }
+}
+
+    /* Dashboard Styles */
+    .dashboard-container {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 20px;
+    }
+
+    .card {
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: var(--secondary-color);
+    }
+
+    .profile-info p {
+      margin: 5px 0;
+    }
+
+    .quick-links a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      margin-bottom: 8px;
+      padding: 6px 10px;
+      border-radius: 5px;
+      background: rgba(0, 120, 215, 0.6);
+      transition: background 0.3s;
+    }
+
+    .light-theme .quick-links a {
+      color: #333;
+    }
+
+    .quick-links a:hover {
+      background: rgba(0, 120, 215, 0.8);
+    }
+
+    /* Booking Form Styles */
+    #bookingForm label {
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+
+    #bookingForm select, #bookingForm input {
+      width: 100%;
+      padding: 8px;
+      border-radius: 6px;
+      border: none;
+      margin-bottom: 10px;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .light-theme #bookingForm select, .light-theme #bookingForm input {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    #bookingForm button {
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    #bookingForm button:hover {
+      background: #005fa3;
+    }
+
+    /* Calendar Styles */
+    .calendar-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 30px;
+      padding: 30px;
+    }
+
+    .calendar, .reminder-box {
+      flex: 1 1 350px;
+      padding: 20px;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .calendar div {
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .calendar div:hover {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .calendar .header {
+      font-weight: bold;
+      color: var(--secondary-color);
+      cursor: default;
+    }
+
+    .calendar .selected {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .reminder-box input, 
+    .reminder-box textarea, 
+    .reminder-box button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .reminder-box button {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .reminder-box button:hover {
+      background: #005fa3;
+    }
+
+    .reminder-list {
+      margin-top: 15px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .reminder-list li {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      padding: 8px;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    /* About Us Styles */
+    .about-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+
+    .about-container h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--secondary-color);
+    }
+
+    .about-container p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .team-section {
+      margin-top: 40px;
+    }
+
+    .team-members {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .member {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 20px;
+      width: 250px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .member img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    /* Contact Styles */
+    .contact-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+
+    .contact-info {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .contact-info p {
+      font-size: 1.1rem;
+      margin: 6px 0;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-form label {
+      font-weight: 600;
+    }
+
+    .contact-form input, 
+    .contact-form textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .light-theme .contact-form input,
+    .light-theme .contact-form textarea {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .contact-form textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    .map {
+      margin-top: 40px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+    }
+
+    /* Profile Styles */
+    .profile-container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+
+    .profile-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .profile-container label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .profile-container input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .light-theme .profile-container input {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .profile-container button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: var(--success-color);
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    .profile-container button:hover {
+      background-color: #218838;
+    }
+
+    /* Settings Styles */
+    .settings-container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+
+    .settings-section {
+      margin-bottom: 20px;
+    }
+
+    .settings-section h3 {
+      margin-bottom: 12px;
+    }
+
+    .setting {
+      margin-bottom: 12px;
+    }
+
+    .setting label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    .setting input, .setting select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .light-theme .setting input, .light-theme .setting select {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .toggle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .toggle input {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+
+    /* Footer Styles */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #ccc;
+      margin-top: 50px;
+    }
+
+    .light-theme footer {
+      background: rgba(255, 255, 255, 0.6);
+      color: #666;
+    }
+
+    footer a {
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Theme Toggle Button */
+    .theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      border: none;
+      border-radius: 50%;
+      padding: 10px 14px;
+      cursor: pointer;
+      color: #fff;
+      font-size: 1.2rem;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(0, 0, 0, 0.8);
+      transform: scale(1.1);
+    }
+
+    /* Petals Animation */
+    .petal {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: url('https://cdn-icons-png.flaticon.com/512/616/616408.png') no-repeat center center;
+      background-size: contain;
+      pointer-events: none;
+      z-index: 1;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Welcome Message */
+    .welcome-message {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.5rem;
+    }
+
+    /* Security Notice */
+    .security-notice {
+      background: rgba(255, 0, 0, 0.2);
+      border: 1px solid rgba(255, 0, 0, 0.5);
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .dashboard-container {
+        grid-template-columns: 1fr;
+      }
+
+      .calendar-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .header-content {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .auth-buttons {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+        :root {
+      --primary-color: #0078d7;
+      --secondary-color: #00eaff;
+      --success-color: #28a745;
+      --danger-color: #ff5252;
+      --light-color: #f8f9fa;
+      --dark-color: #343a40;
+      --glass-bg: rgba(255, 255, 255, 0.15);
+      --glass-border: rgba(255, 255, 255, 0.3);
+      --blur: blur(15px);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      min-height: 100vh;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+      transition: background 0.5s ease;
+    }
+
+    body.light-theme {
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1400&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+
+    body.light-theme::before {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Glass effect */
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+      border: 1px solid var(--glass-border);
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Header Styles */
+    header {
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .light-theme .logo {
+      color: #333;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+    .light-theme nav a {
+      color: #333;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--secondary-color);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: #005fa3;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: white;
+      border: 1px solid white;
+    }
+
+    .light-theme .btn-outline {
+      color: #333;
+      border: 1px solid #333;
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Main Content Styles */
+    main {
+      padding: 40px 0;
+      min-height: calc(100vh - 160px);
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    /* Login/Register Form Styles */
+    .auth-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh;
+    }
+
+    .auth-form {
+      width: 100%;
+      max-width: 400px;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .auth-form h1 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    .auth-form input {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .light-theme .auth-form input {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .auth-form button {
+      width: 100%;
+      padding: 12px;
+      background-color: var(--success-color);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .auth-form button:hover {
+      background-color: #218838;
+    }
+
+    .form-link {
+      margin-top: 15px;
+      display: inline-block;
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+    
+/* Label styles (consistent, accessible) */
+label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.2px;
+  transition: color 0.15s ease, transform 0.12s ease;
+}
+
+/* Specific form areas (slightly bolder) */
+.auth-form label,
+.contact-form label,
+.profile-container label,
+.settings-container label,
+#bookingForm label,
+.reminder-box label {
+  font-weight: 700;
+}
+
+/* Required indicator — add class="required" to labels you want to mark */
+label.required::after {
+  content: " *";
+  color: #ff5252; /* danger color */
+  margin-left: 0.15rem;
+  font-weight: 700;
+}
+
+/* Theme-aware colors */
+.light-theme label {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* Compact spacing for small screens */
+@media (max-width: 600px) {
+  label {
+    font-size: 0.92rem;
+    margin-bottom: 0.3rem;
+  }
+}
+
+    /* Dashboard Styles */
+    .dashboard-container {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 20px;
+    }
+
+    .card {
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: var(--secondary-color);
+    }
+
+    .profile-info p {
+      margin: 5px 0;
+    }
+
+    .quick-links a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      margin-bottom: 8px;
+      padding: 6px 10px;
+      border-radius: 5px;
+      background: rgba(0, 120, 215, 0.6);
+      transition: background 0.3s;
+    }
+
+    .light-theme .quick-links a {
+      color: #333;
+    }
+
+    .quick-links a:hover {
+      background: rgba(0, 120, 215, 0.8);
+    }
+
+    /* Booking Form Styles */
+    #bookingForm label {
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+
+    #bookingForm select, #bookingForm input {
+      width: 100%;
+      padding: 8px;
+      border-radius: 6px;
+      border: none;
+      margin-bottom: 10px;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .light-theme #bookingForm select, .light-theme #bookingForm input {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    #bookingForm button {
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    #bookingForm button:hover {
+      background: #005fa3;
+    }
+
+    /* Calendar Styles */
+    .calendar-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 30px;
+      padding: 30px;
+    }
+
+    .calendar, .reminder-box {
+      flex: 1 1 350px;
+      padding: 20px;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .calendar div {
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .calendar div:hover {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .calendar .header {
+      font-weight: bold;
+      color: var(--secondary-color);
+      cursor: default;
+    }
+
+    .calendar .selected {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .reminder-box input, 
+    .reminder-box textarea, 
+    .reminder-box button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .reminder-box button {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .reminder-box button:hover {
+      background: #005fa3;
+    }
+
+    .reminder-list {
+      margin-top: 15px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .reminder-list li {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      padding: 8px;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    /* About Us Styles */
+    .about-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+
+    .about-container h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--secondary-color);
+    }
+
+    .about-container p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .team-section {
+      margin-top: 40px;
+    }
+
+    .team-members {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .member {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 20px;
+      width: 250px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .member img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    /* Contact Styles */
+    .contact-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+
+    .contact-info {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .contact-info p {
+      font-size: 1.1rem;
+      margin: 6px 0;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-form label {
+      font-weight: 600;
+    }
+
+    .contact-form input, 
+    .contact-form textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .light-theme .contact-form input,
+    .light-theme .contact-form textarea {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .contact-form textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    .map {
+      margin-top: 40px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+    }
+
+    /* Profile Styles */
+    .profile-container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+
+    .profile-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .profile-container label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .profile-container input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .light-theme .profile-container input {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .profile-container button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: var(--success-color);
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    .profile-container button:hover {
+      background-color: #218838;
+    }
+
+    /* Settings Styles */
+    .settings-container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+
+    .settings-section {
+      margin-bottom: 20px;
+    }
+
+    .settings-section h3 {
+      margin-bottom: 12px;
+    }
+
+    .setting {
+      margin-bottom: 12px;
+    }
+
+    .setting label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    .setting input, .setting select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .light-theme .setting input, .light-theme .setting select {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .toggle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .toggle input {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+
+    /* Footer Styles */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #ccc;
+      margin-top: 50px;
+    }
+
+    .light-theme footer {
+      background: rgba(255, 255, 255, 0.6);
+      color: #666;
+    }
+
+    footer a {
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Theme Toggle Button */
+    .theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      border: none;
+      border-radius: 50%;
+      padding: 10px 14px;
+      cursor: pointer;
+      color: #fff;
+      font-size: 1.2rem;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(0, 0, 0, 0.8);
+      transform: scale(1.1);
+    }
+
+    /* Petals Animation */
+    .petal {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: url('https://cdn-icons-png.flaticon.com/512/616/616408.png') no-repeat center center;
+      background-size: contain;
+      pointer-events: none;
+      z-index: 1;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Welcome Message */
+    .welcome-message {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.5rem;
+    }
+
+    /* Security Notice */
+    .security-notice {
+      background: rgba(255, 0, 0, 0.2);
+      border: 1px solid rgba(255, 0, 0, 0.5);
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .dashboard-container {
+        grid-template-columns: 1fr;
+      }
+
+      .calendar-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .header-content {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .auth-buttons {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>South African Airline</title>
+
+  <link rel="stylesheet" href="styles.css" />
+
+</head>
+<body>
+  <!-- Header -->
+  <header class="glass">
+    <div class="container header-content">
+      <a href="#" class="logo" data-page="home">South African Airline</a>
+      <nav id="mainNav">
+        <ul>
+          <li><a href="#" class="nav-link" data-page="home">Home</a></li>
+          <li><a href="#" class="nav-link" data-page="booking">Booking</a></li>
+          <li><a href="#" class="nav-link" data-page="calendar">Calendar</a></li>
+          <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+          <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons" id="authButtons">
+        <a href="#" class="btn btn-outline" id="loginBtn">Log In</a>
+        <a href="#" class="btn btn-primary" id="registerBtn">Register</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Home Page -->
+    <section id="home" class="page">
+      <div class="welcome-message">
+        <h1>Welcome to South African Airline</h1>
+        <p>Your trusted partner for safe and convenient flights across South Africa</p>
+      </div>
+      <div class="dashboard-container">
+        <div class="card glass profile-info">
+          <h3>Your Details</h3>
+          <p><strong>Name:</strong> <span id="dashName">Loading...</span></p>
+          <p><strong>Email:</strong> <span id="dashEmail">Loading...</span></p>
+          <p><strong>Cell Phone:</strong> <span id="dashCell">Loading...</span></p>
+          <p><strong>Province:</strong> <span id="dashProvince">Loading...</span></p>
+        </div>
+        <div class="card glass">
+          <h3>Quick Actions</h3>
+          <div class="quick-links">
+            <a href="#" data-page="booking">Book a Flight</a>
+            <a href="#" data-page="calendar">View Calendar</a>
+            <a href="#" data-page="profile">Update Profile</a>
+            <a href="#" data-page="settings">Settings</a>
+          </div>
+          <div class="recent-activity" style="margin-top:20px;">
+            <h3>Recent Bookings</h3>
+            <ul id="recentBookings">
+              <!-- Recent bookings will be populated here -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Login Page -->
+    <section id="login" class="page active">
+      <div class="auth-container">
+        <div class="auth-form glass">
+          <h1>LOG IN</h1>
+          <div class="security-notice" id="loginNotice">
+            Please register first if you don't have an account
+          </div>
+          <form id="loginForm">
+            <input type="email" id="loginEmail" placeholder="Email" required />
+            <input type="password" id="loginPassword" placeholder="Password" required />
+            <button type="submit">LOG IN</button>
+          </form>
+          <a href="#" class="form-link" data-page="register">Don't have an account? Register</a>
+          <a href="#" class="form-link" data-page="forgot-password">Forgot Password?</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Register Page -->
+    <section id="register" class="page">
+      <div class="auth-container">
+        <div class="auth-form glass">
+          <h1>REGISTER</h1>
+          <form id="registerForm">
+            <input type="text" id="Name" placeholder="First Name" required />
+            <input type="text" id="Surname" placeholder="Last Name" required />
+            <input type="email" id="Email" placeholder="Email" required />
+            <input type="text" id="Cellphone" placeholder="Phone Number" required />
+                <select id="province" name="province" required>
+                  <option value="" disabled selected>Select your province</option>
+                  <option value="Eastern Cape">Eastern Cape</option>
+                  <option value="Free State">Free State</option>
+                  <option value="Gauteng">Gauteng</option>
+                  <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+                  <option value="Limpopo">Limpopo</option>
+                  <option value="Mpumalanga">Mpumalanga</option>
+                  <option value="Northern Cape">Northern Cape</option>
+                  <option value="North West">North West</option>
+                  <option value="Western Cape">Western Cape</option>
+                </select>
+            <button type="submit">REGISTER</button>
+            <input type="password" id="Password" placeholder="Password" required />
+
+          </form>
+          <a href="#" class="form-link" data-page="login">Already have an account? Log in</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Forgot Password Page -->
+    <section id="forgot-password" class="page">
+      <div class="auth-container">
+        <div class="auth-form glass">
+          <h2>Forgot Password</h2>
+          <form id="forgotPasswordForm">
+            <input type="email" id="resetEmail" placeholder="Enter your email" required />
+            <button type="submit">Send Reset Link</button>
+          </form>
+          <a href="#" class="form-link" data-page="login">Back to Login</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Page -->
+    <section id="booking" class="page">
+      <div class="security-notice" id="bookingNotice" style="display: none;">
+        Please log in to book a flight
+      </div>
+      <div class="card glass" id="bookingFormContainer">
+        <h1>Book a Flight ✈️</h1>
+        <form id="bookingForm">
+          <label>From Province:</label>
+          <select id="fromProvince" required></select>
+
+          <label>To Province:</label>
+          <select id="toProvince" required></select>
+
+          <label>Flight Date:</label>
+          <input type="date" id="flightDate" required />
+
+          <button type="submit">Book Flight</button>
+        </form>
+        <p id="bookingMessage"></p>
+      </div>
+    </section>
+
+    <!-- Calendar Page -->
+    <section id="calendar" class="page">
+      <div class="security-notice" id="calendarNotice" style="display: none;">
+        Please log in to access the calendar
+      </div>
+      <div class="calendar-container glass" id="calendarContainer">
+        <div class="calendar">
+          <h2 id="monthYear"></h2>
+          <div id="calendarGrid"></div>
+        </div>
+        <div class="reminder-box">
+          <h3>Set Reminder</h3>
+          <label for="reminderDate">Date:</label>
+          <input type="text" id="reminderDate" readonly>
+
+          <label for="reminderText">Note:</label>
+          <textarea id="reminderText" rows="3" placeholder="e.g., Flight to Cape Town at 9 AM"></textarea>
+
+          <button id="addReminderBtn">Add Reminder</button>
+
+          <ul class="reminder-list" id="reminderList"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us Page -->
+    <section id="about" class="page">
+      <div class="about-container glass">
+        <h2>About Us</h2>
+        <p>
+          Welcome to <strong>South African Airline</strong> — your trusted partner for affordable, safe, and convenient flight bookings across South Africa.
+          Our platform connects travelers with the best flight options between all major provinces, ensuring a smooth and reliable booking experience.
+        </p>
+
+        <p>
+          Founded with the vision to make air travel accessible to everyone, we combine technology and passion for aviation to deliver exceptional service.
+          Whether you're traveling for business or leisure, our goal is to make every journey enjoyable, comfortable, and stress-free.
+        </p>
+
+        <p>
+          We value customer satisfaction, security, and transparency. That's why our booking system is designed to be fast, simple, and secure.
+          With real-time flight updates, reminders, and support, we ensure you never miss your next destination.
+        </p>
+
+        <div class="team-section">
+          <h2>Meet Our Team</h2>
+          <div class="team-members">
+            <div class="member">
+              <img src="https://cdn-icons-png.flaticon.com/512/194/194935.png" alt="Team Member">
+              <h3>Kowny</h3>
+              <p>Lead Developer</p>
+            </div>
+            <div class="member">
+              <img src="https://cdn-icons-png.flaticon.com/512/194/194936.png" alt="Team Member">
+              <h3>Thabo</h3>
+              <p>Operations Manager</p>
+            </div>
+            <div class="member">
+              <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="Team Member">  
+              <h3>Ayanda</h3>
+              <p>Customer Support</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page">
+      <div class="contact-container glass">
+        <h2>Contact Us</h2>
+
+        <div class="contact-info">
+          <p><strong>📍 Address:</strong> 123 Aviation Street, Johannesburg, South Africa</p>
+          <p><strong>📞 Phone:</strong> +27 10 123 4567</p>
+          <p><strong>📧 Email:</strong> support@saairline.co.za</p>
+          <p><strong>🕒 Working Hours:</strong> Mon - Fri | 8:00 AM - 5:00 PM</p>
+        </div>
+
+        <form id="contactForm" class="contact-form">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+
+        <div class="map">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3585.766059940508!2d28.047305315028497!3d-26.20410298344166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950dce4c1a4e1d%3A0x81a4b94af4f83b8a!2sJohannesburg%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1614943872572!5m2!1sen!2sza"
+            allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Profile Page -->
+    <section id="profile" class="page">
+      <div class="security-notice" id="profileNotice" style="display: none;">
+        Please log in to view your profile
+      </div>
+      <div class="profile-container glass" id="profileContainer">
+        <h2>Profile</h2>
+
+        <form id="profileForm">
+          <label for="surname">Surname</label>
+          <input type="text" id="surname" name="surname" readonly />
+
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" readonly />
+
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" readonly />
+
+          <label for="cellphone">Cell Phone</label>
+          <input type="text" id="cellphone" name="cellphone" readonly />
+
+          <label for="province">Province</label>
+          <input type="text" id="province" name="province" readonly />
+
+          <button type="button" id="editBtn">Edit Profile</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Settings Page -->
+    <section id="settings" class="page">
+      <div class="security-notice" id="settingsNotice" style="display: none;">
+        Please log in to access settings
+      </div>
+      <div class="settings-container glass" id="settingsContainer">
+        <h2>Advanced Settings</h2>
+
+        <div class="settings-section">
+          <h3>Privacy & Security</h3>
+          <div class="setting toggle">
+            <label for="2fa">Enable Two-Factor Authentication</label>
+            <input type="checkbox" id="2fa" />
+          </div>
+          <div class="setting">
+            <label for="password">Change Password</label>
+            <input type="password" id="password" placeholder="Enter new password" />
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <h3>System Preferences</h3>
+          <div class="setting">
+            <label for="theme">Theme</label>
+            <select id="theme">
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+              <option value="auto">Auto</option>
+            </select>
+          </div>
+          <div class="setting">
+            <label for="timezone">Time Zone</label>
+            <select id="timezone">
+              <option value="UTC+2">South Africa (UTC+2)</option>
+              <option value="UTC+1">Central Europe (UTC+1)</option>
+              <option value="UTC-5">Eastern US (UTC-5)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <h3>Developer Options</h3>
+          <div class="setting toggle">
+            <label for="debug">Enable Debug Mode</label>
+            <input type="checkbox" id="debug" />
+          </div>
+          <div class="setting toggle">
+            <label for="beta">Join Beta Program</label>
+            <input type="checkbox" id="beta" />
+          </div>
+        </div>
+
+        <button class="btn btn-primary" id="saveSettingsBtn">Save Changes</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      &copy; 2025 South African Airline. All rights reserved. |
+      <a href="#" data-page="contact">Contact Us</a> |
+      <a href="#" data-page="about">About Us</a>
+    </div>
+  </footer>
+
+  <!-- Theme Toggle Button -->
+  <button class="theme-toggle" id="themeToggle">🌙</button>
+
+  <script src ="App.js"></script>
+
+</body>
+</html>
