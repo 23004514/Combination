@@ -1,10 +1,10 @@
-South African Airline Web Application
-Overview
+**South African Airline Web Application
+Overview**
 
 South African Airline is a fully responsive web application designed to facilitate airline booking and management for users in South Africa. The platform provides a user-friendly interface for booking flights, managing profiles, viewing calendars, setting reminders, and accessing company information. It aims to provide a seamless, secure, and enjoyable travel experience.
 
-Features
-General
+**Features
+General**
 
 Fully responsive layout for desktop and mobile devices.
 
@@ -12,7 +12,7 @@ Modern design with glassmorphism effects and light/dark theme support.
 
 Multi-page navigation including Home, Booking, Calendar, About Us, Contact, Profile, and Settings.
 
-Authentication
+**Authentication**
 
 User Registration with personal details (name, surname, email, phone, province, and password).
 
@@ -20,7 +20,7 @@ Login system for secure access.
 
 Forgot Password page with email-based reset.
 
-Dashboard
+**Dashboard**
 
 Displays user profile details (Name, Email, Phone, Province).
 
@@ -28,7 +28,7 @@ Quick links for common actions like booking flights or updating profile.
 
 Shows recent booking activity.
 
-Booking
+**Booking**
 
 Users can select departure and destination provinces.
 
@@ -36,7 +36,7 @@ Choose flight dates from a calendar input.
 
 Confirmation message upon booking.
 
-Calendar & Reminders
+**Calendar & Reminders**
 
 Interactive calendar displaying month and year.
 
@@ -44,13 +44,13 @@ Users can set reminders for flight dates or personal notes.
 
 Reminder list dynamically updates based on user input.
 
-About Us
+**About Us**
 
 Company information, mission, and values.
 
 Team section showcasing key members.
 
-Contact
+**Contact**
 
 Contact form with fields for name, email, and message.
 
@@ -58,27 +58,27 @@ Embedded Google Maps showing office location.
 
 Display of contact information and working hours.
 
-Profile Management
+**Profile Management**
 
 View user profile details.
 
 Edit and update profile (if logged in).
 
-Settings
+**Settings**
 
 Privacy & security settings including Two-Factor Authentication.
 
 System preferences like theme and timezone.
 
 Developer options such as debug mode and beta program opt-in.
-
-Footer
+**
+Footer**
 
 Quick links to About Us and Contact pages.
 
 Copyright notice.
 
-Technologies Used
+**Technologies Used**
 
 HTML5 – Semantic markup for structure.
 
